@@ -1,5 +1,7 @@
 # 🎙️ Audio Deepfake Detector (Genuine vs. AI-Generated Speech)
 
+[![Live Web App](https://img.shields.io/badge/Streamlit-Live%20App-FF4B4B?style=for-the-badge&logo=streamlit&logoColor=white)](https://deepfake-audio-detection-iws8pvkprxba846n2mup6t.streamlit.app/)
+
 This repository contains the complete codebase, trained model, and interactive dashboard for classifying audio recordings as **Genuine Human Speech** or **AI-Generated Synthetic Speech (Deepfakes)**.
 
 Developed as part of the Google DeepMind Advanced Agentic Coding Pair-Programming series.
