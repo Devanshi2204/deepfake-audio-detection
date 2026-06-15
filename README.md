@@ -62,15 +62,22 @@ The full confusion matrix plot is saved in [confusion_matrix.png](confusion_matr
 
 ## 📂 Repository Structure
 
-*   `app.py`: Streamlit-based interactive Web dashboard (Dark theme, real-time file uploads, raw wave visualizations, and metrics tables).
-*   `Deepfake_Audio_Detection.ipynb`: Full step-by-step Jupyter Notebook containing features exploration, train/test splitting, SVM training, and EER computations.
-*   `test_prediction.py`: CLI script for testing new audio samples directly from the terminal.
-*   `extract_features.py`: Parallelized feature extraction script.
-*   `train_model.py`: Multi-model benchmarking and optimization script.
-*   `evaluate.py`: Final test evaluation and confusion matrix plotting script.
-*   `best_model.joblib`: The trained SVM model classifier.
-*   `scaler.joblib`: The feature scaler used to normalize acoustic inputs.
-*   `requirements.txt`: Python package dependencies.
+*   `README.md` & `walkthrough.md`: Main project documentation.
+*   `confusion_matrix.png` & `training_report.csv`: Visual metrics reports.
+*   `models/`:
+    *   `best_model.joblib`: The trained SVM model classifier.
+    *   `scaler.joblib`: The feature scaler used to normalize acoustic inputs.
+*   `notebooks/`:
+    *   `notebook.ipynb`: Full step-by-step Jupyter Notebook containing features exploration, train/test splitting, SVM training, and EER computations.
+*   `scripts/`:
+    *   `test_audio.py`: CLI script for testing new audio samples directly from the terminal.
+    *   `extract_features.py`: Parallelized feature extraction script.
+    *   `train_model.py`: Multi-model benchmarking and optimization script.
+    *   `evaluate.py`: Final test evaluation and confusion matrix plotting script.
+    *   `download_dataset.py`: Python selective dataset downloader script.
+*   `web_app/`:
+    *   `app.py`: Streamlit-based interactive Web dashboard (Dark theme, real-time file uploads, raw wave visualizations, and metrics tables).
+    *   `requirements.txt`: Python package dependencies.
 
 ---
 
@@ -79,13 +86,13 @@ The full confusion matrix plot is saved in [confusion_matrix.png](confusion_matr
 ### 1. Installation
 Clone the repository and install requirements:
 ```bash
-pip install -r requirements.txt
+pip install -r web_app/requirements.txt
 ```
 
 ### 2. Run the CLI Test Script
 To run inference on a new `.wav` audio sample:
 ```bash
-python test_prediction.py <path_to_audio_wav_file>
+python scripts/test_audio.py <path_to_audio_wav_file>
 ```
 **Example output:**
 ```text
@@ -105,7 +112,7 @@ Probability Breakdowns:
 ### 3. Launch the Streamlit Web Dashboard
 Launch the dashboard locally:
 ```bash
-python -m streamlit run app.py
+python -m streamlit run web_app/app.py
 ```
 Open `http://localhost:8501` in your browser to upload and analyze files in real-time.
 

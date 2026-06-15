@@ -155,12 +155,21 @@ def main():
     # Main layout
     st.markdown('<div class="main-header"><h1>🎙️ Deepfake Voice Audio Detector</h1><p style="font-size:1.15rem; color:#A0A0B0;">Analyze audio recordings to verify if they are genuine human speech or AI-generated synthetic deepfakes using state-of-the-art acoustic feature extraction and maximum-margin classifications.</p></div>', unsafe_allow_html=True)
 
-    # Load Model and Scaler
-    model_path = "best_model.joblib"
-    scaler_path = "scaler.joblib"
+    # Dynamic paths supporting running from root or from web_app/ folder
+    model_path = "models/best_model.joblib"
+    if not os.path.exists(model_path):
+        model_path = "../models/best_model.joblib"
+    if not os.path.exists(model_path):
+        model_path = "best_model.joblib"
+        
+    scaler_path = "models/scaler.joblib"
+    if not os.path.exists(scaler_path):
+        scaler_path = "../models/scaler.joblib"
+    if not os.path.exists(scaler_path):
+        scaler_path = "scaler.joblib"
     
     if not os.path.exists(model_path) or not os.path.exists(scaler_path):
-        st.error("Error: Trained model files (best_model.joblib/scaler.joblib) not found. Run training script first.")
+        st.error(f"Error: Trained model files not found (checked models/ and parent). Model path attempted: {model_path}")
         return
 
     scaler = joblib.load(scaler_path)

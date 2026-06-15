@@ -2,7 +2,7 @@
 """
 Deepfake Audio Detector - CLI Testing Script
 Usage:
-    python test_prediction.py <path_to_audio_wav_file>
+    python test_audio.py <path_to_audio_wav_file>
 """
 
 import os
@@ -12,9 +12,18 @@ import soundfile as sf
 import librosa
 import joblib
 
-# Load Model and Scaler
-MODEL_PATH = "best_model.joblib"
-SCALER_PATH = "scaler.joblib"
+# Load Model and Scaler dynamically searching models/ or parent models/
+MODEL_PATH = "models/best_model.joblib"
+if not os.path.exists(MODEL_PATH):
+    MODEL_PATH = "../models/best_model.joblib"
+if not os.path.exists(MODEL_PATH):
+    MODEL_PATH = "best_model.joblib"
+
+SCALER_PATH = "models/scaler.joblib"
+if not os.path.exists(SCALER_PATH):
+    SCALER_PATH = "../models/scaler.joblib"
+if not os.path.exists(SCALER_PATH):
+    SCALER_PATH = "scaler.joblib"
 
 def extract_file_features(filepath):
     try:
@@ -96,7 +105,7 @@ def extract_file_features(filepath):
 def main():
     if len(sys.argv) < 2:
         print("\n[!] Error: Please specify the audio file path.")
-        print("Usage: python test_prediction.py <path_to_audio_wav_file>\n")
+        print("Usage: python test_audio.py <path_to_audio_wav_file>\n")
         sys.exit(1)
         
     audio_path = sys.argv[1]

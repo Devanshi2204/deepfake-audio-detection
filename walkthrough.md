@@ -84,9 +84,9 @@ Below is the visual confusion matrix showing counts and percentages:
 
 ## GitHub Deliverables Generated
 
-1. **Jupyter Notebook (`Deepfake_Audio_Detection.ipynb`)**: Integrates data preprocessing, parallel feature extraction, stratified split, SVM RBF model training, EER metric evaluations, and a prediction demo.
-2. **Trained Model & Scaler (`best_model.joblib` & `scaler.joblib`)**: Serialized artifacts for direct inference.
-3. **CLI Testing Script (`test_prediction.py`)**: CLI program for feeding and predicting new files.
+1. **Jupyter Notebook (`notebooks/notebook.ipynb`)**: Integrates data preprocessing, parallel feature extraction, stratified split, SVM RBF model training, EER metric evaluations, and a prediction demo.
+2. **Trained Model & Scaler (`models/best_model.joblib` & `models/scaler.joblib`)**: Serialized artifacts for direct inference.
+3. **CLI Testing Script (`scripts/test_audio.py`)**: CLI program for feeding and predicting new files.
 4. **README.md**: Comprehensive project documentation outlining pipeline logic, model specs, metrics, structure, and local run/setup commands.
-5. **Git Repository Setup**: Locally initialized, staged with a configured `.gitignore` (filtering out the 15GB raw audio dataset), and committed.
+5. **Git Repository Structure**: Reorganized into clean directories (`models/`, `notebooks/`, `scripts/`, `web_app/`) with a configured `.gitignore` (filtering out the 15GB raw audio dataset).
 
