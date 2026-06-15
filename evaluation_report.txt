@@ -1,0 +1,15 @@
+================ FINAL EVALUATION REPORT ================
+Model Evaluated: SVC
+Overall Accuracy: 98.79%
+F1 Score:         98.80%
+Equal Error Rate: 1.46%
+  EER Threshold:  0.6002
+Per-Class Accuracy:
+  - Genuine (Real) Speech: 97.92%
+  - Deepfake (Fake) Speech: 99.67%
+
+Confusion Matrix:
+               Predicted Real | Predicted Fake
+Actual Real :  1176           | 25            
+Actual Fake :  4              | 1197          
+========================================================
